@@ -1,7 +1,3 @@
-
-
-
-
 class Musician():
     """
        this class has the properties that will be passed to to the other classes that describe the names, roles and instruments of multiple musicians
@@ -26,6 +22,9 @@ class Musician():
 
     def play_solo(self):
         return self.noise
+      
+
+        
 
 class Band():
     names =[]
@@ -34,6 +33,8 @@ class Band():
         self.name = name
         self.members = members
         Band.names.append(self.name)
+
+    
 
 class Guitarist(Musician):
     """

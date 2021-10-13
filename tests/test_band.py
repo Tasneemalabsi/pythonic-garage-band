@@ -1,7 +1,7 @@
 import pytest
 
 from pythonic_garage_band.band import (
-    # Band,
+    Band,
     Musician,
     Guitarist,
     Bassist,
