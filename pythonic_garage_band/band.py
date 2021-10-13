@@ -1,56 +1,77 @@
 
 
-class Guitarist:
-    """
-    """
-    def __init__(self,name):
-        self.name=name
-        self.sound="face melting guitar solo"
 
-    def __str__(self):
-        return f"My name is {self.name} and I play guitar"
 
-    def __repr__(self):
-        return f"Guitarist instance. Name = {self.name}"
-    # def play_solo(self):
-    #     return self.instrument
+class Musician():
+    """
+       this class has the properties that will be passed to to the other classes that describe the names, roles and instruments of multiple musicians
 
-class Drummer:
     """
-    """
-    def __init__(self,name):
-        self.name=name
-        self.sound="bom bom buh bom"
-    def __str__(self):
-        return f"My name is {self.name} and I play drums"
-    def __repr__(self):
-        return f"Drummer instance. Name = {self.name}" 
-    # def play_solo(self):
-    #     return self.instrument    
 
-class Bassist:
-    """
-    """
-    def __init__(self,name,sound):
-        self.name=name
-        self.sound="rattle boom crash"
-    def __str__(self):
-        return f"My name is {self.name} and I play bass"
-    def __repr__(self):
-        return f"Bassist instance. Name = {self.name}" 
-    # def play_solo(self):
-    #     return self.instrument    
+    def __init__(self, name, player,instrument, noise):
+        self.name = str(name)
+        self.player = str(player) 
+        self.instrument = str(instrument)
+        self.noise = noise
+        self.name = name
+        
+    def __str__ (self):
+        return (f"My name is {self.name} and I play {self.instrument}")
 
-class Band:
-    def __init__(self,name,members,sound):
-        self.name=name  
-        self.members=members 
-        self.sound=str(sound)
+    def __repr__ (self):
+        return (f"{self.player} instance. Name = {self.name}")
+
+    def get_instrument(self):
+        return self.instrument
 
     def play_solo(self):
-        return self.sound                   
-          
+        return self.noise
 
+class Band():
+    names =[]
+    def __init__(self, name, members):
+
+        self.name = name
+        self.members = members
+        Band.names.append(self.name)
+
+class Guitarist(Musician):
+    """
+    
+       this class has the properties of the guitarist class that is inherited from the musician
+
+    """
+    def __init__(self, name = ""):
+        self.name = str(name)
+        self.player = "Guitarist" 
+        self.instrument = "guitar"
+        self.noise = "face melting guitar solo"
+
+class Bassist(Musician):
+    """
+    
+       this class has the properties of the bassist class that is inherited from the musician
+
+    """
+    def __init__(self, name = ""):
+        self.name = str(name)
+        self.player = "Bassist" 
+        self.instrument = "bass"
+        self.voice = "bom bom buh bom"
+
+
+class Drummer(Musician):
+    """
+    
+       this class has the properties of the drummer class that is inherited from the musician
+
+    """
+
+    def __init__(self, name = ""):
+        self.name = str(name)
+        self.player = "Drummer" 
+        self.instrument = "drums"
+        self.voice = "rattle boom crash"
 
 
 
