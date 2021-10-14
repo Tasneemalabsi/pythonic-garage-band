@@ -9,8 +9,7 @@ class Musician():
         self.player = str(player) 
         self.instrument = str(instrument)
         self.noise = noise
-        self.name = name
-        
+                
     def __str__ (self):
         return (f"My name is {self.name} and I play {self.instrument}")
 
