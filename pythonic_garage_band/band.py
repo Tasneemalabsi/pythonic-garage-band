@@ -1,23 +1,24 @@
+
 instances=[]
+solos=[]
+
 class Band():
     def __init__(self, name='', members=[]):
 
         self.name = name
         self.members = members
         instances.append(self)
-     
 
-    def play_solos(self,solos=[]):
+
+    def play_solos(self):
+        
         for member in self.members:
-            solos += [member.play_solo()]
+            solos.append(member.play_solo())
+        return solos 
+
         
 
     
-        
-
-
-
-
 class Musician(Band):
     """
      this class has the properties that will be passed to to the other classes that describe the names, roles and instruments of multiple musicians
@@ -36,7 +37,7 @@ class Musician(Band):
 
     def get_instrument(self):
         return self.instrument
-
+    
     def play_solo(self):
         return self.noise
       
