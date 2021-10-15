@@ -153,7 +153,7 @@ def test_to_list():
 #######################
 
 
-# @pytest.fixture
+@pytest.fixture
 def nirvana_data():
     return {
         "name": "Nirvana",
@@ -165,7 +165,7 @@ def nirvana_data():
     }
 
 
-# @pytest.fixture
+@pytest.fixture
 def one_band():
     members = [
         Guitarist("Kurt Cobain"),
@@ -178,7 +178,7 @@ def one_band():
     return some_band
 
 
-# @pytest.fixture(autouse=True)
+@pytest.fixture(autouse=True)
 def clean():
     """runs before each test automatically.
     This is necessary because otherwise band instances added in one test
@@ -186,4 +186,49 @@ def clean():
     There's also a more advanced way to run code after each test as well
     Check the docs for that. Hint: it uses yield
     """
-    
+    Band.instances = []
+
+
+#######################
+# Stretch
+#######################
+
+
+# @pytest.mark.skip("stretch")
+# def test_from_file():
+#     with open("assets/bands.json") as f:
+#         bands = json.loads(f.read())
+
+#     assert len(bands) == 1
+
+#     nirvana_data = bands[0]
+
+#     nirvana = Band(nirvana_data["name"], nirvana_data["members"])
+
+#     assert nirvana.name == "Nirvana"
+
+
+# @pytest.mark.skip("stretch")
+# def test_from_yaml():
+#     bands = yaml.safe_load(open("assets/bands.yml"))
+
+#     assert bands[0]["name"] == "Nirvana"
+
+#     assert bands[1]["name"] == "The Pixies"
+
+
+# @pytest.mark.skip("stretch")
+# def test_abstract_musician():
+#     with pytest.raises(TypeError):
+#         Musician("nobody", "nothing", "silence")
+
+
+# @pytest.mark.skip("stretch")
+# def test_incomplete_keyboardist():
+#     with pytest.raises(TypeError) as e:
+#         Keyboardist("Booker T. Jones")
+
+#     assert (
+#         repr(e)
+#         == """<ExceptionInfo TypeError("Can't instantiate abstract class Keyboardist with abstract method some_method_that_must_be_implemented_in_base_class") tblen=1>"""  # noqa: E501
+#     )

@@ -1,12 +1,35 @@
-class Musician():
+instances=[]
+class Band():
+    # names =[]
+    def __init__(self, name='', members=[], instrument='', player='' ):
+
+        self.name = name
+        self.members = members
+        self.instrument=instrument
+        self.player=player
+        instances.append(self)
+        # def play_solos(self):
+    # def __str__ (self):
+    #     return (f"My name is {self.name} and I play {self.instrument}")
+
+    # def __repr__ (self):
+    #     return (f"{self.player} instance. Name = {self.name}")
+    def to_list(self):
+        return instances   
+
+    
+        
+
+
+
+
+class Musician(Band):
     """
-       this class has the properties that will be passed to to the other classes that describe the names, roles and instruments of multiple musicians
+     this class has the properties that will be passed to to the other classes that describe the names, roles and instruments of multiple musicians
 
     """
 
-    def __init__(self, name, player,instrument, noise):
-        self.name = str(name)
-        self.player = str(player) 
+    def __init__(self, instrument, noise):
         self.instrument = str(instrument)
         self.noise = noise
                 
@@ -23,15 +46,6 @@ class Musician():
         return self.noise
       
 
-        
-
-class Band():
-    names =[]
-    def __init__(self, name, members):
-
-        self.name = name
-        self.members = members
-        Band.names.append(self.name)
 
     
 
@@ -57,7 +71,8 @@ class Bassist(Musician):
         self.name = str(name)
         self.player = "Bassist" 
         self.instrument = "bass"
-        self.voice = "bom bom buh bom"
+        self.noise = "rattle boom crash"
+         
 
 
 class Drummer(Musician):
@@ -71,7 +86,7 @@ class Drummer(Musician):
         self.name = str(name)
         self.player = "Drummer" 
         self.instrument = "drums"
-        self.voice = "rattle boom crash"
+        self.noise = "bom bom buh bom"
 
 
 
