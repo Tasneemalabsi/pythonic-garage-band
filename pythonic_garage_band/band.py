@@ -2,6 +2,14 @@
 solos=[]
 
 class Band():
+   
+    """
+     this is the base class that has the name property for each class and the array of members
+
+     methods: play_solos() -> returns a list
+              to list() -> returns a list 
+    """
+
     instances=[]
 
     def __init__(self, name='', members=[]):
@@ -27,11 +35,16 @@ class Musician(Band):
     """
      this class has the properties that will be passed to to the other classes that describe the names, roles and instruments of multiple musicians
 
+     methods: play_solo() -> returns a string
+              get_instrument() -> returns a string
+
     """
 
-    def __init__(self, instrument, noise):
+    def __init__(self, instrument, noise,player):
         self.instrument = str(instrument)
         self.noise = noise
+        self.player = player
+
                 
     def __str__ (self):
         return (f"My name is {self.name} and I play {self.instrument}")
